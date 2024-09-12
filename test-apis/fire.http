@@ -7,7 +7,10 @@ content-type: application/json
 {
     "name":"tharun",
     "role":"hero",
-    "phone": 9866151254
+    "phone": 9866151252,
+    "poc":"ganesh",
+    "email":"tharunamplu9.8@gmail.com"
+
 
 }
 
