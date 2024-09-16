@@ -1,19 +1,24 @@
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
-import clientRouters from './routers/clientRouters';
+import userRoute from './routers/userRoutes';
+import { logger } from 'hono/logger';
+import { cors } from 'hono/cors';
+import { CONFIG } from './config/appConfig';
 
 const app = new Hono();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!');
-});
+app.use(logger());
+app.use('*', cors());
 
-app.route('/clients', clientRouters);
+app.route(`/${CONFIG.BASE_URL}/${CONFIG.VERSIONING}`, userRoute);
 
 const port = 3000;
-console.log(`Server is running on port ${port}`);
 
 serve({
   fetch: app.fetch,
   port
 });
+
+
+console.log(`Server is running on port ${port}`);
+

@@ -26,7 +26,7 @@ export const services = pgTable('services', {
 
 export const serviceWithInvoicesRelations = relations(services, ({ many }) => ({
     invoices: many(invoices),
-}));  //it's one to many relationship which means one service can have multiple invoices
+})); 
 
 export const serviceWithClietnRelations = relations(services, ({ one }) => ({
     client: one(clients, {
@@ -34,9 +34,9 @@ export const serviceWithClietnRelations = relations(services, ({ one }) => ({
         references: [clients.id],
     })
 }
-));   //it's a many to one relationship which mean multiple services can belong to one client
+));   
 
 
-export type service = typeof services.$inferSelect; // return type when queried
-export type newService = typeof services.$inferInsert; // insert type
+export type service = typeof services.$inferSelect; 
+export type newService = typeof services.$inferInsert; 
 

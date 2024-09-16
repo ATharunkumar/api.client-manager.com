@@ -42,7 +42,7 @@ export const clientWithFilesRelations = relations(clients, ({ many }) => ({
 }));
 
 
-export type client = typeof clients.$inferSelect; // return type when queried
-export type newClient = typeof clients.$inferInsert; // insert type
+export type client = typeof clients.$inferSelect; 
+export type newClient = typeof clients.$inferInsert; 
 
 export type clientTable = typeof clients;

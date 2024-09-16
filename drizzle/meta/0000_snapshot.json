@@ -1,5 +1,5 @@
 {
-  "id": "9610311a-6aec-4d65-b5d8-6fe63a9ccd3b",
+  "id": "e1cc6e92-44ba-4027-8a14-e149e94d6499",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -515,6 +515,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "password": {
+          "name": "password",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
         "user_type": {
           "name": "user_type",
           "type": "user_type",
@@ -586,6 +592,13 @@
           "nullsNotDistinct": false,
           "columns": [
             "email"
+          ]
+        },
+        "users_password_unique": {
+          "name": "users_password_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "password"
           ]
         }
       }

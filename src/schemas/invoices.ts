@@ -9,7 +9,7 @@ export const invoices = pgTable('invoices', {
     serviceId: integer('service_id').notNull(),
     invoiceStatus: invoiceStatusEnum('invoice_status').default("PENDING"),
     remarks: text('remarks'),
-    invoiceData: date('invoice_date').notNull(),
+    invoiceDate: date('invoice_date').notNull(),
     paymentDate: date('payment_date'),
     invoiceAmount: numeric('invoice_amount', { precision: 100, scale: 2 }),
     createdAt: timestamp('created_at').notNull().defaultNow(),
@@ -30,6 +30,6 @@ export const invoicesWithServiceRealtions = relations(invoices, ({ one }) => ({
 }));
 
 
-export type invoice = typeof invoices.$inferSelect; // return type when queried
-export type newInvoice = typeof invoices.$inferInsert; // insert type
+export type invoice = typeof invoices.$inferSelect; 
+export type newInvoice = typeof invoices.$inferInsert; 
 

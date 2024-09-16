@@ -78,11 +78,13 @@ CREATE TABLE IF NOT EXISTS "users" (
 	"last_name" varchar NOT NULL,
 	"email" text NOT NULL,
 	"phone" text NOT NULL,
+	"password" varchar NOT NULL,
 	"user_type" "user_type" DEFAULT 'ADMIN' NOT NULL,
 	"status" "status" DEFAULT 'ACTIVE',
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
-	CONSTRAINT "users_email_unique" UNIQUE("email")
+	CONSTRAINT "users_email_unique" UNIQUE("email"),
+	CONSTRAINT "users_password_unique" UNIQUE("password")
 );
 --> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "name_idx" ON "clients" USING btree ("name");--> statement-breakpoint

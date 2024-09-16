@@ -7,6 +7,7 @@ export const users = pgTable('users', {
     lastName: varchar('last_name').notNull(),
     email: text('email').notNull().unique(),
     phone: text('phone').notNull(),
+    password:varchar('password').notNull().unique(),
     userType: userTypeEnum('user_type').notNull().default("ADMIN"),
     status: statusEnum('status').default("ACTIVE"),
     createdAt: timestamp('created_at').notNull().defaultNow(),
@@ -20,6 +21,5 @@ export const users = pgTable('users', {
 });
 
 
-export type user = typeof users.$inferSelect; // return type when queried
-export type newUser = typeof users.$inferInsert; // insert type
-
+export type user = typeof users.$inferSelect; 
+export type newUser = typeof users.$inferInsert; 
